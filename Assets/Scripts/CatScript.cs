@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//THIS SCRIPT IS IN CONTROL OF CHARACTER BEHAVIOR
+
 public class CatScript : MonoBehaviour
 {
     //Create an instance of rigidBody

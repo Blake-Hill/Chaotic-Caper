@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//THIS SCRIPT MOVES THE CLOUDS AFTER THEY HAVE BEEN SPAWNED
+
 public class CloudMovingScript : MonoBehaviour
 {
     //cloud move speed variable
