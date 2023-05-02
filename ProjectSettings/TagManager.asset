@@ -8,6 +8,9 @@ TagManager:
   - Cat
   - UICloud
   - StartButtonText
+  - GreenStar
+  - PurpleStar
+  - BlueStar
   layers:
   - Default
   - TransparentFX

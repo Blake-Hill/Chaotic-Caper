@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 157750359368843112}
   - component: {fileID: 4158665128305270457}
   m_Layer: 0
-  m_Name: Star(Coin)
-  m_TagString: Untagged
+  m_Name: Purple Star
+  m_TagString: PurpleStar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

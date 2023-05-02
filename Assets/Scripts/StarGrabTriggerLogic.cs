@@ -10,6 +10,7 @@ public class StarGrabTriggerLogic : MonoBehaviour
     public CatScript cat;
     //create a logicScript object to hold my logicScript
     public LogicScript logic;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,28 @@ public class StarGrabTriggerLogic : MonoBehaviour
         cat = GameObject.FindGameObjectWithTag("Cat").GetComponent<CatScript>();
     }
 
-    //On collision enter if cat is alive add a star to current star count and destroy star
+   
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {       
+         //on collision with cat if cat is alive add a star and destroy triggered star
         if (collision.gameObject.layer == 3 && cat.catIsAlive) {
+            //if star is purple give 1 point
+            if(this.tag.Equals("PurpleStar"))
+            {
             logic.addStar(1);
             Destroy(gameObject);
+            }
+            //
+            else if(this.tag.Equals("GreenStar"))
+            {
+            logic.addStar(3);
+            Destroy(gameObject);
+            }
+            else if(this.tag.Equals("BlueStar"))
+            {
+            logic.addStar(10);
+            Destroy(gameObject);
+            }
         }
     }
 }

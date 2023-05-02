@@ -14,6 +14,9 @@ public class CatScript : MonoBehaviour
     public LogicScript logic;
     //Create an instance of Cat
     public GameObject cat;
+    //Create a sprite field to hold the flapping sprite
+    public Sprite defaultCat;
+    public Sprite flappingCat;
 
     //Create a variable for bonkSound
     [SerializeField] private AudioSource bonkSound;
@@ -45,11 +48,17 @@ public class CatScript : MonoBehaviour
         //Flight Logic
         //Check if spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space) && catIsAlive && transform.position.y < 16) 
-        {            
+        {           
+            //Switch Sprite for faux animation
+            cat.GetComponent<SpriteRenderer>().sprite = flappingCat; 
             //Play flapSound
             flapSound.Play();
             //Add upwards velocity to cat on space press
             rigidBody.velocity = Vector2.up * flySpeed;
+        }
+        //reset sprite to end animation
+        if(Input.GetKeyUp(KeyCode.Space)){
+            cat.GetComponent<SpriteRenderer>().sprite = defaultCat;
         }
 
         //COMMENT OUT BEFORE FINAL RELEASE

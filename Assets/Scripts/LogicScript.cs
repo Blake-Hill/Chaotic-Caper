@@ -20,13 +20,22 @@ public class LogicScript : MonoBehaviour
     public GameObject highscoreText;
     //create a game object to hold the GameOver scene, be sure to link it in unity!
     public GameObject GameOver;
+    //create a game object to hold the starsCount text, be sure to link it in unity!
+    public GameObject starsCount;
 
     //Scoring and Stars variables
     public int playerScore;
     public bool newHighScore = false;
-    public Text starsCount;
-    public int stars;
+    public int stars = 0;
+    public Image starBag;
+    public Image star;
     
+    //runs when game starts
+    void Start(){
+        //make starbag invisible
+        starBag.enabled = false;
+    }
+
     //method to add score, called on collision with trigger between pipes
     public void addScore(int pointsToAdd) {
         //update score variable
@@ -40,7 +49,7 @@ public class LogicScript : MonoBehaviour
         //update current stars variable
         stars += starsToAdd;
         //set displayed stars count = to stars variable
-        starsCount.text = stars.ToString();
+        starsCount.GetComponent<TextMeshProUGUI>().SetText(stars.ToString());
     }
 
     //method to restart game, called when restart game button is pressed
@@ -104,23 +113,26 @@ public class LogicScript : MonoBehaviour
             highscore.GetComponent<TextAnimator>().SetText(highScore, false);
         }
 
+        //Remove star icon
+        star.enabled = false;
         //add gained stars to total stars
+        starBag.enabled = true;
         PlayerPrefs.SetInt("totalStars", PlayerPrefs.GetInt("totalStars") + stars);
         //reset gained stars for next run
         PlayerPrefs.SetInt("currentStars", 0);
         //replace displayed star count with total star count
-        starsCount.text = PlayerPrefs.GetInt("totalStars").ToString();
+        starsCount.GetComponent<TextMeshProUGUI>().SetText(PlayerPrefs.GetInt("totalStars").ToString());
 
         //set gameover scene to active
         GameOver.SetActive(true);
     }
 
-    
-    
+    public void openShop(){
+        SceneManager.LoadScene("Shop");
+    }
 
-
-
-    
-
-    
+    public void openSettings(){
+        SceneManager.LoadScene("Settings");
+    }
+       
 }
