@@ -37,7 +37,8 @@ public class CatScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {      
+    {   
+        Screen.SetResolution(1920 , 1080, true);
         //Connect to logic script so I can use its functions
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }

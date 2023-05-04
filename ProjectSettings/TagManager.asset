@@ -11,6 +11,7 @@ TagManager:
   - GreenStar
   - PurpleStar
   - BlueStar
+  - PipeSpawner
   layers:
   - Default
   - TransparentFX

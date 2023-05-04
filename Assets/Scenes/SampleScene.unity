@@ -1835,7 +1835,7 @@ GameObject:
   - component: {fileID: 1392923089}
   m_Layer: 0
   m_Name: Pipe Spawner
-  m_TagString: Untagged
+  m_TagString: PipeSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
